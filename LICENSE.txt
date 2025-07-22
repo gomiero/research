@@ -1,5 +1,5 @@
-                     A.G.O. PERSONAL AND PRIVATE LICENSE
-                          Version 1.1 - July, 2025
+                      A.G.O. PERSONAL AND PRIVATE LICENSE
+                          Version 1.2 - July, 2025
 
  Copyright (c) 2025-present Alexandre Gomiero de Oliveira.
  All rights reserved.
@@ -55,20 +55,16 @@
      (c) Using this code (or its outputs) to assist in generating new
          machine learning solutions, games, or probabilistic models.
 
-                            SUPREMACY CLAUSE
+                         THIRD-PARTY DEPENDENCIES CLAUSE
 
-   This LICENSE overrides and voids any previous or inherited licenses that
-   may apply to third-party frameworks, libraries, tools, or dependencies
-   used in the development of this code, as long as the source code and its
-   use remain strictly personal and non-distributed.
+   This project may depend on third-party open-source libraries (e.g., NumPy).
+   While the source code authored by the OWNER is restricted under the A.G.O.
+   PERSONAL AND PRIVATE LICENSE, any such third-party components remain
+   governed by their respective licenses.
 
-   No license clause from such dependencies shall be enforceable against the
-   OWNER, as no redistribution or public use of those components occurs.
-
-   If this code (or derivatives thereof) is ever distributed publicly,
-   intentionally or accidentally, all applicable third-party licenses shall
-   automatically be considered reinstated and will take precedence where
-   required by law.
+   It is your responsibility to review and comply with those licenses if you
+   plan to use or modify this project. Distribution of the OWNER's code is
+   still strictly prohibited unless explicitly authorized.
 
                        LIMITATIONS AND LIABILITY
 
