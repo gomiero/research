@@ -6,6 +6,27 @@ Please refer to the LICENSE file for the full legal terms and restrictions.
 > **IMPORTANT:** Any use beyond local, personal, non-commercial experimentation — including AI training, model derivation, redistribution, or academic/commercial integration — is strictly forbidden without explicit written authorization from the OWNER.
 
 ---
+# 🔄 Iterative Probabilistic Matrix Operator (Experimental)  
+This repository introduces an original, experimental matrix expansion operator, designed for dynamic transformation of 2×2 probability matrices into structured 4×4 stochastic systems. The process mimics probabilistic growth, interaction between states, and evolving spatial structures.
+
+## 🧠 Concept Overview  
+The system is composed of two core functions:
+
+o_boot: Takes a 2×2 matrix a and embeds it into a 4×4 matrix, expanding its values via nonlinear cross-multiplications that simulate state interactions across the matrix boundaries.
+
+o_iter: Applies blockwise cross-multiplications between submatrices of the 4×4 result and reconstructs a new 4×4 matrix. This process is normalized after each iteration, transforming the system into a stochastic state transition matrix.
+
+Each iteration modifies the internal probabilistic structure, potentially revealing convergence, symmetry, entropy shifts, or spatial dynamics over time.
+
+## 🧪 Purpose & Potential Applications
+
+This operator is part of an ongoing research project, with potential experimental applications such as:
+
+- 🎲 Iterative stochastic simulations (inspired by Markov processes)
+- 🧬 Fractal matrix dynamics and self-similarity structures
+- 📊 Experimental statistical modeling and entropy propagation
+- 🧠 AI-inspired state evolution, alternative decision fields, or transition maps
+- 🛰️ Simulation of evolving probability fields in constrained state spaces
 
 # 🧩 Matrix Ortho Operator (Experimental)
 
