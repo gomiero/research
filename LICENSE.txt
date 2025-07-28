@@ -1,5 +1,5 @@
                       A.G.O. PERSONAL AND PRIVATE LICENSE
-                          Version 1.2 - July, 2025
+                          Version 1.3 - July, 2025
 
  Copyright (c) 2025-present Alexandre Gomiero de Oliveira.
  All rights reserved.
@@ -13,6 +13,20 @@
 
    "You" (or "Your") shall mean an individual, Legal Entity, AI model,
    or any other machine learning system (even the ones not existing yet).
+
+   “Repository” shall mean the collection of source code files, configuration
+   files, scripts, documentation, metadata, data files, assets, and any other
+   content, whether in textual, binary, or structured form, included in this
+   project as stored, managed, or distributed by the OWNER, whether in part
+   or in full.
+
+   “AI Model” (also referred to as “Machine Learning System” or “Artificial
+   Intelligence Agent”) shall mean any software, neural network, algorithmic
+   framework, training pipeline, or automated system capable of performing
+   prediction, generation, classification, reasoning, decision-making, or
+   any other cognitive-like process — whether through symbolic, statistical,
+   gradient-based, evolutionary, or emergent computation — regardless of its
+   physical location, training source, or purpose.
 
    This source code, and any content or data included in this repository,
    was developed strictly for PERSONAL USE by the OWNER (Alexandre Gomiero

@@ -19,9 +19,10 @@
 import numpy as np
 
 # -----------------------------------------------------------------------------
-# Experimental Probabilistic Operator - A.G.O. Research Project
+# Experimental Probabilistic Operators - A.G.O. Research Project
 # Boot and iteration functions for matrix expansion and probabilistic dynamics.
 # -----------------------------------------------------------------------------
+
 
 def o_boot(a: np.ndarray, res: np.ndarray):
     """
@@ -61,7 +62,15 @@ def o_boot(a: np.ndarray, res: np.ndarray):
     res[3][1] = a[0][0] * a[1][0]
     res[3][2] = a[0][1] * a[1][1]
 
-def o_iter(aop: np.ndarray) -> np.ndarray:
+
+def o_reboot_dynamic(mat: np.ndarray, a: np.ndarray):
+    print("reboot")
+    mat[1:3, 1:3] = a
+    print(mat)
+    print("_"*9)
+    return mat
+
+def o_iter(aop: np.ndarray, op=1) -> np.ndarray:
     """
     Iterative operator for dynamic probabilistic expansion.
 
@@ -72,18 +81,109 @@ def o_iter(aop: np.ndarray) -> np.ndarray:
     Returns:
         A normalized 4x4 matrix after transformation.
     """
+
+    def r1234(a1: np.ndarray,a2: np.ndarray,a3: np.ndarray,a4: np.ndarray) -> np.ndarray:
+        return np.concatenate((
+            np.concatenate((
+                a1[:],
+                a2[:]
+            ), axis=1),
+            np.concatenate((
+                a3[:],
+                a4[:]
+            ), axis=1)
+        ), axis=0)
+
+
+    def r2341(a1: np.ndarray,a2: np.ndarray,a3: np.ndarray,a4: np.ndarray) -> np.ndarray:
+        return np.concatenate((
+            np.concatenate((
+                a2[:],
+                a3[:]
+            ), axis=1),
+            np.concatenate((
+                a4[:],
+                a1[:]
+            ), axis=1)
+        ), axis=0)
+
+    def r3412(a1: np.ndarray,a2: np.ndarray,a3: np.ndarray,a4: np.ndarray) -> np.ndarray:
+        return np.concatenate((
+            np.concatenate((
+                a3[:],
+                a4[:]
+            ), axis=1),
+            np.concatenate((
+                a1[:],
+                a2[:]
+            ), axis=1)
+        ), axis=0)
+
+
+    def r4123(a1: np.ndarray,a2: np.ndarray,a3: np.ndarray,a4: np.ndarray) -> np.ndarray:
+        return np.concatenate((
+            np.concatenate((
+                a4[:],
+                a1[:]
+            ), axis=1),
+            np.concatenate((
+                a2[:],
+                a3[:]
+            ), axis=1)
+        ), axis=0)
+
+    a1 = np.matmul(aop[2:4, 2:4], aop[0:2, 0:2])
+    a2 = np.matmul(aop[2:4, 0:2], aop[0:2, 2:4])
+    a3 = np.matmul(aop[0:2, 2:4], aop[2:4, 0:2])
+    a4 = np.matmul(aop[0:2, 0:2], aop[2:4, 2:4])
     # Block multiplication and reconstruction
-    res = np.concatenate((
-        np.concatenate((
-            np.matmul(aop[2:4, 2:4], aop[0:2, 0:2]),
-            np.matmul(aop[2:4, 0:2], aop[0:2, 2:4])
-        ), axis=1),
-        np.concatenate((
-            np.matmul(aop[0:2, 2:4], aop[2:4, 0:2]),
-            np.matmul(aop[0:2, 0:2], aop[2:4, 2:4])
-        ), axis=1)
-    ), axis=0)
+    match op:
+        case 1:
+            res = r1234(a1, a2, a3, a4)
+        case 2:
+            res = r2341(a1, a2, a3, a4)
+        case 3:
+            res = r3412(a1, a2, a3, a4)
+        case 4:
+            res = r4123(a1, a2, a3, a4)
 
     # Normalize to ensure it forms a probability space
     res /= np.sum(res)
     return res
+
+if __name__=="__main__":
+    # local tests
+    N = 2
+#   a = np.random.rand(N, N)
+    a = np.array([
+        [0.1, 0.2],
+        [0.3, 0.4]
+    ])
+    ax = np.array([
+        [0.4, 0.1],
+        [0.3, 0.2]
+    ])
+    ax = np.array([
+        [0.3, 0.4],
+        [0.2, 0.1]
+    ])
+    ax = np.array([
+        [0.2, 0.3],
+        [0.1, 0.4]
+    ])
+    res = np.zeros((4,4))
+    o_boot(a, res)
+
+    print(f"N = {N}")
+    print("Matrix A:\n", a)
+    print("Matrix res:\n", res)
+    
+    IT = 20
+    cnt = 0
+    for _ in range(IT):
+        res = o_iter(res, 2)
+        print(res)
+        if cnt % 5 == 0:
+            o_reboot_dynamic(res, a)
+        print()
+        cnt += 1
