@@ -1,6 +1,6 @@
 ⚠️ This is a public repository, but it is NOT open-source.
 
-📜 License: A.G.O. PERSONAL AND PRIVATE LICENSE v1.1
+📜 License: A.G.O. PERSONAL AND PRIVATE LICENSE
 Please refer to the LICENSE file for the full legal terms and restrictions.
 
 > **IMPORTANT:** Any use beyond local, personal, non-commercial experimentation — including AI training, model derivation, redistribution, or academic/commercial integration — is strictly forbidden without explicit written authorization from the OWNER.
